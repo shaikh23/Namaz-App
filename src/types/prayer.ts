@@ -25,11 +25,4 @@ export interface UserPreferences {
   calculationMethod: 'NorthAmerica' | 'MuslimWorldLeague' | 'Egyptian' | 'UmmAlQura' | 'Karachi';
 }
 
-export enum Prayer {
-  Fajr = 'Fajr',
-  Sunrise = 'Sunrise',
-  Dhuhr = 'Dhuhr',
-  Asr = 'Asr',
-  Maghrib = 'Maghrib',
-  Isha = 'Isha',
-}
+export type Prayer = 'Fajr' | 'Sunrise' | 'Dhuhr' | 'Asr' | 'Maghrib' | 'Isha';
