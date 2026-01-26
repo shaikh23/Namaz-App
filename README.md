@@ -4,12 +4,12 @@ A Progressive Web App (PWA) that displays the five daily Islamic prayer times ba
 
 ## Features
 
-- 📅 Today's 5 prayer times (Fajr, Dhuhr, Asr, Maghrib, Isha)
-- ⏰ Next prayer countdown
-- 📍 Automatic location detection
-- 🌙 Hijri (Islamic) date display
-- 📱 PWA - Install on your phone like a native app
-- 🔒 Privacy-focused - all calculations done locally, no backend
+- Today's 5 prayer times (Fajr, Dhuhr, Asr, Maghrib, Isha)
+- Next prayer countdown
+- Automatic location detection
+- Hijri (Islamic) date display
+- PWA - Install on your phone like a native app
+- Privacy-focused - all calculations done locally, no backend
 
 ## Tech Stack
 
