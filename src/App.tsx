@@ -9,7 +9,7 @@ import { Loading } from './components/Loading';
 import { PrayerCalculator } from './services/prayerCalculator';
 
 function App() {
-  const { prayerTimes, location, loading, error } = usePrayerTimes();
+  const { prayerTimes, location, loading, error, updateLocation } = usePrayerTimes();
   const { theme, setTheme } = useTheme();
 
   if (loading) {
@@ -47,11 +47,11 @@ function App() {
 
   return (
     <div
-      className="min-h-screen py-8 px-4 transition-colors duration-300"
+      className="min-h-screen py-8 pb-16 px-4 transition-colors duration-300"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
       <div className="max-w-md mx-auto">
-        <Header location={location} theme={theme} setTheme={setTheme} />
+        <Header location={location} theme={theme} setTheme={setTheme} onLocationUpdate={updateLocation} />
         <RamadanBanner prayerTimes={prayerTimes} />
         <NextPrayer prayerTimes={prayerTimes} />
         <PrayerTimesList
