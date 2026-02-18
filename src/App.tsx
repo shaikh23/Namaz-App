@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { NextPrayer } from './components/NextPrayer';
 import { PrayerTimesList } from './components/PrayerTimesList';
 import { RamadanBanner } from './components/RamadanBanner';
+import { QiblaCompass } from './components/QiblaCompass';
 import { Loading } from './components/Loading';
 import { PrayerCalculator } from './services/prayerCalculator';
 
@@ -57,6 +58,7 @@ function App() {
           prayerTimes={prayerTimes}
           nextPrayerName={nextPrayer?.name}
         />
+        {location && <QiblaCompass location={location} />}
       </div>
     </div>
   );
