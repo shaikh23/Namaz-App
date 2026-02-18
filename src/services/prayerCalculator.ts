@@ -1,5 +1,5 @@
 import { Coordinates, CalculationMethod, PrayerTimes as AdhanPrayerTimes } from 'adhan';
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import type { PrayerTimes, Location, UserPreferences } from '../types/prayer';
 
 export class PrayerCalculator {
@@ -15,6 +15,10 @@ export class PrayerCalculator {
     const method = this.getCalculationMethod(methodName);
     const prayerTimes = new AdhanPrayerTimes(coordinates, date, method);
 
+    // Tahajjud = last third of the night (Maghrib → next Fajr)
+    const tomorrowTimes = new AdhanPrayerTimes(coordinates, addDays(date, 1), method);
+    const tahajjud = this.calculateTahajjud(prayerTimes.maghrib, tomorrowTimes.fajr);
+
     return {
       fajr: prayerTimes.fajr,
       sunrise: prayerTimes.sunrise,
@@ -23,7 +27,18 @@ export class PrayerCalculator {
       maghrib: prayerTimes.maghrib,
       isha: prayerTimes.isha,
       date,
+      tahajjud,
     };
+  }
+
+  /**
+   * Calculate the Tahajjud window: last third of the night.
+   * Night is defined as the span from Maghrib to the following Fajr.
+   */
+  static calculateTahajjud(maghrib: Date, nextFajr: Date): { start: Date; end: Date } {
+    const nightMs = nextFajr.getTime() - maghrib.getTime();
+    const start = new Date(maghrib.getTime() + (2 / 3) * nightMs);
+    return { start, end: nextFajr };
   }
 
   /**

@@ -12,6 +12,10 @@ export interface PrayerTimes {
   maghrib: Date;
   isha: Date;
   date: Date;
+  tahajjud: {
+    start: Date; // last third of night begins
+    end: Date;   // next day's Fajr
+  };
 }
 
 export interface Location {

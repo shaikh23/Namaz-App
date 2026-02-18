@@ -20,12 +20,8 @@ export function NextPrayer({ prayerTimes }: NextPrayerProps) {
       }
     };
 
-    // Update immediately
     updateCountdown();
-
-    // Update every minute
     const interval = setInterval(updateCountdown, 60000);
-
     return () => clearInterval(interval);
   }, [prayerTimes]);
 
@@ -35,14 +31,29 @@ export function NextPrayer({ prayerTimes }: NextPrayerProps) {
 
   return (
     <div className="w-full max-w-md mx-auto mb-6">
-      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-xl shadow-lg">
+      <div
+        className="p-6 rounded-xl shadow-lg"
+        style={{
+          background: 'linear-gradient(135deg, var(--next-bg-from), var(--next-bg-to))',
+          border: '1px solid var(--border-next)',
+        }}
+      >
         <div className="text-center">
-          <p className="text-sm uppercase tracking-wide opacity-90 mb-1">Next Prayer</p>
-          <h2 className="text-3xl font-bold mb-2">{nextPrayer.name}</h2>
-          <p className="text-xl font-medium mb-1">
+          <p
+            className="text-sm uppercase tracking-wide mb-1"
+            style={{ color: 'var(--next-accent)', opacity: 0.85 }}
+          >
+            Next Prayer
+          </p>
+          <h2 className="text-3xl font-bold mb-2" style={{ color: 'var(--next-text)' }}>
+            {nextPrayer.name}
+          </h2>
+          <p className="text-xl font-medium mb-1" style={{ color: 'var(--next-text)' }}>
             {PrayerCalculator.formatTime(nextPrayer.time)}
           </p>
-          <p className="text-sm opacity-90">in {timeUntil}</p>
+          <p className="text-sm" style={{ color: 'var(--next-accent)', opacity: 0.85 }}>
+            in {timeUntil}
+          </p>
         </div>
       </div>
     </div>
