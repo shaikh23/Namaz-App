@@ -3,6 +3,7 @@ import { useTheme } from './hooks/useTheme';
 import { Header } from './components/Header';
 import { NextPrayer } from './components/NextPrayer';
 import { PrayerTimesList } from './components/PrayerTimesList';
+import { RamadanBanner } from './components/RamadanBanner';
 import { Loading } from './components/Loading';
 import { PrayerCalculator } from './services/prayerCalculator';
 
@@ -50,6 +51,7 @@ function App() {
     >
       <div className="max-w-md mx-auto">
         <Header location={location} theme={theme} setTheme={setTheme} />
+        <RamadanBanner prayerTimes={prayerTimes} />
         <NextPrayer prayerTimes={prayerTimes} />
         <PrayerTimesList
           prayerTimes={prayerTimes}
