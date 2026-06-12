@@ -16,6 +16,18 @@ fi
 
 cd "$REPO_ROOT"
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+if ! command -v npm >/dev/null 2>&1; then
+  if command -v brew >/dev/null 2>&1; then
+    echo "Installing Node.js"
+    brew install node
+  else
+    echo "npm is unavailable and Homebrew was not found on PATH"
+    exit 1
+  fi
+fi
+
 echo "Installing JavaScript dependencies"
 npm ci
 

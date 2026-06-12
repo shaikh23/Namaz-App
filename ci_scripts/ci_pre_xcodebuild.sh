@@ -16,11 +16,23 @@ fi
 
 cd "$REPO_ROOT"
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
 PODS_XCCONFIG="ios/App/Pods/Target Support Files/Pods-App/Pods-App.release.xcconfig"
 
 if [ -f "$PODS_XCCONFIG" ]; then
   echo "CocoaPods configuration already exists"
   exit 0
+fi
+
+if ! command -v npm >/dev/null 2>&1; then
+  if command -v brew >/dev/null 2>&1; then
+    echo "Installing Node.js"
+    brew install node
+  else
+    echo "npm is unavailable and Homebrew was not found on PATH"
+    exit 1
+  fi
 fi
 
 if [ ! -d node_modules ]; then
