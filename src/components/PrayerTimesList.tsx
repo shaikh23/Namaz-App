@@ -52,7 +52,7 @@ export function PrayerTimesList({ prayerTimes, nextPrayerName }: PrayerTimesList
                 className="text-xl font-bold"
                 style={{ color: isNext ? 'var(--accent)' : 'var(--text-primary)' }}
               >
-                {PrayerCalculator.formatTime(prayer.time)}
+                {PrayerCalculator.formatTime(prayer.time, prayerTimes.timezone)}
               </p>
               {isNext && (
                 <span className="text-xs font-medium" style={{ color: 'var(--accent)' }}>
@@ -83,10 +83,10 @@ export function PrayerTimesList({ prayerTimes, nextPrayerName }: PrayerTimesList
         </div>
         <div className="text-right">
           <p className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
-            {PrayerCalculator.formatTime(tahajjud.start)}
+            {PrayerCalculator.formatTime(tahajjud.start, prayerTimes.timezone)}
           </p>
           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            until {PrayerCalculator.formatTime(tahajjud.end)}
+            until {PrayerCalculator.formatTime(tahajjud.end, prayerTimes.timezone)}
           </p>
         </div>
       </div>

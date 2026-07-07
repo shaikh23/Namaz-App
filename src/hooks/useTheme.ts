@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
-export type Theme = 'midnight' | 'cloud' | 'parchment';
+export type Theme = 'midnight' | 'cloud' | 'parchment' | 'forest' | 'dawn';
 
 const STORAGE_KEY = 'namaz-theme';
-const VALID_THEMES: Theme[] = ['midnight', 'cloud', 'parchment'];
+const VALID_THEMES: Theme[] = ['midnight', 'cloud', 'parchment', 'forest', 'dawn'];
 
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(() => {

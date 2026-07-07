@@ -53,6 +53,7 @@ export class GeocodingService {
       latitude: parseFloat(result.lat),
       longitude: parseFloat(result.lon),
       city: displayCity,
+      countryCode,
     };
   }
 }

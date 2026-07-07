@@ -8,7 +8,7 @@ export function usePrayerTimes() {
   const [prayerTimes, setPrayerTimes] = useState<PrayerTimes | null>(null);
   const [location, setLocation] = useState<Location | null>(null);
   const [preferences, setPreferences] = useState<UserPreferences>({
-    calculationMethod: 'NorthAmerica',
+    calculationMethod: 'Auto',
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +22,15 @@ export function usePrayerTimes() {
         const savedPreferences = Storage.getPreferences();
 
         if (savedPreferences) {
-          setPreferences(savedPreferences);
+          // Older app versions defaulted to NorthAmerica without a user-facing selector.
+          // Migrate that legacy default to Auto for region-aware behavior.
+          const migratedPreferences =
+            savedPreferences.calculationMethod === 'NorthAmerica'
+              ? { ...savedPreferences, calculationMethod: 'Auto' as const }
+              : savedPreferences;
+
+          setPreferences(migratedPreferences);
+          Storage.savePreferences(migratedPreferences);
         }
 
         if (savedLocation) {

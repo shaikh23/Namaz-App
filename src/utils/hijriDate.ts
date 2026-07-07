@@ -51,3 +51,38 @@ export function getIslamicMonth(date: Date = new Date()): string {
     return '';
   }
 }
+
+/**
+ * Get the Hijri month number (1-12).
+ */
+export function getHijriMonthNumber(date: Date = new Date()): number | null {
+  try {
+    // Force Latin digits so month can be parsed reliably across environments.
+    const formatter = new Intl.DateTimeFormat('en-US-u-ca-islamic-nu-latn', {
+      month: 'numeric',
+    });
+    const parts = formatter.formatToParts(date);
+    const monthPart = parts.find(part => part.type === 'month');
+
+    if (!monthPart) {
+      return null;
+    }
+
+    const month = Number(monthPart.value);
+    if (!Number.isInteger(month) || month < 1 || month > 12) {
+      return null;
+    }
+
+    return month;
+  } catch (error) {
+    console.error('Failed to get Hijri month number:', error);
+    return null;
+  }
+}
+
+/**
+ * True only during Ramadan (Hijri month 9).
+ */
+export function isRamadanSeason(date: Date = new Date()): boolean {
+  return getHijriMonthNumber(date) === 9;
+}

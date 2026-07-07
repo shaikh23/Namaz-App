@@ -49,7 +49,7 @@ export function NextPrayer({ prayerTimes }: NextPrayerProps) {
             {nextPrayer.name}
           </h2>
           <p className="text-xl font-medium mb-1" style={{ color: 'var(--next-text)' }}>
-            {PrayerCalculator.formatTime(nextPrayer.time)}
+            {PrayerCalculator.formatTime(nextPrayer.time, prayerTimes.timezone)}
           </p>
           <p className="text-sm" style={{ color: 'var(--next-accent)', opacity: 0.85 }}>
             in {timeUntil}

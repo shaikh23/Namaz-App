@@ -9,6 +9,8 @@ const themes: { id: Theme; color: string; label: string }[] = [
   { id: 'midnight', color: '#f59e0b', label: 'Midnight' },
   { id: 'cloud',    color: '#2563eb', label: 'Cloud'    },
   { id: 'parchment',color: '#92400e', label: 'Parchment'},
+  { id: 'forest',   color: '#166534', label: 'Forest'   },
+  { id: 'dawn',     color: '#be185d', label: 'Dawn'     },
 ];
 
 export function ThemeToggle({ theme, setTheme }: ThemeToggleProps) {

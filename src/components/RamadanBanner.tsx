@@ -81,8 +81,8 @@ export function RamadanBanner({ prayerTimes }: RamadanBannerProps) {
           </span>
           <p className="font-semibold text-sm mt-0.5" style={{ color: 'var(--text-secondary)' }}>
             {isActiveFast
-              ? `${PrayerCalculator.formatTime(prayerTimes.maghrib)} Iftar`
-              : `Suhoor closes at ${PrayerCalculator.formatTime(prayerTimes.fajr)}`}
+              ? `${PrayerCalculator.formatTime(prayerTimes.maghrib, prayerTimes.timezone)} Iftar`
+              : `Suhoor closes at ${PrayerCalculator.formatTime(prayerTimes.fajr, prayerTimes.timezone)}`}
           </p>
         </div>
         <div className="text-right">

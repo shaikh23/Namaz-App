@@ -71,3 +71,41 @@ html {
   --spinner-color: #92400e;
   --error-text:    #b91c1c;
 }
+
+/* ── Forest (deep green) ─────────────────────────────────────── */
+[data-theme="forest"] {
+  --bg-primary:    #052e16;
+  --bg-card:       #14532d;
+  --text-primary:  #dcfce7;
+  --text-secondary:#86efac;
+  --text-muted:    #4ade80;
+  --accent:        #facc15;
+  --border-card:   #166534;
+  --border-next:   #facc15;
+  --next-bg-from:  #166534;
+  --next-bg-to:    #052e16;
+  --next-text:     #ecfdf5;
+  --next-accent:   #fde68a;
+  --hijri-color:   #facc15;
+  --spinner-color: #facc15;
+  --error-text:    #fda4af;
+}
+
+/* ── Dawn (rose slate) ───────────────────────────────────────── */
+[data-theme="dawn"] {
+  --bg-primary:    #fff1f2;
+  --bg-card:       #ffffff;
+  --text-primary:  #4c1d2f;
+  --text-secondary:#7f1d4e;
+  --text-muted:    #9f1239;
+  --accent:        #be185d;
+  --border-card:   #fecdd3;
+  --border-next:   #be185d;
+  --next-bg-from:  #be185d;
+  --next-bg-to:    #9d174d;
+  --next-text:     #fff1f2;
+  --next-accent:   #fecdd3;
+  --hijri-color:   #be185d;
+  --spinner-color: #be185d;
+  --error-text:    #be123c;
+}
